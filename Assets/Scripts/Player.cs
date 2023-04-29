@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
   Vector2 input;
   Rigidbody2D rigidBody;
   float moveSpeed = 5f;
+  Outfit outfit;
 
   // Start is called before the first frame update
   void Start()
   {
+    GetComponent<SpriteRenderer>().sprite = null;
     rigidBody = GetComponent<Rigidbody2D>();
+    outfit = GetComponentInChildren<Outfit>();
+    // outfit.SetOutfit(0, 0, 0, 0);
+    outfit.SetRandomOutfit();
   }
 
   // Update is called once per frame

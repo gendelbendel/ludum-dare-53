@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Customer
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,9 @@ TagManager:
   - name: Doors
     uniqueID: 221644785
     locked: 0
+  - name: Player
+    uniqueID: 2097218957
+    locked: 0
   - name: Furniture
     uniqueID: 3357552259
     locked: 0
@@ -58,9 +62,6 @@ TagManager:
     locked: 0
   - name: On Surface
     uniqueID: 2977143537
-    locked: 0
-  - name: Player
-    uniqueID: 2097218957
     locked: 0
   - name: Customers
     uniqueID: 2457305769
