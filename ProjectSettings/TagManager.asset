@@ -57,14 +57,14 @@ TagManager:
   - name: Furniture
     uniqueID: 3357552259
     locked: 0
+  - name: Customers
+    uniqueID: 2457305769
+    locked: 0
   - name: Office Furniture
     uniqueID: 4018892597
     locked: 0
   - name: On Surface
     uniqueID: 2977143537
-    locked: 0
-  - name: Customers
-    uniqueID: 2457305769
     locked: 0
   - name: Packages
     uniqueID: 2821968979
