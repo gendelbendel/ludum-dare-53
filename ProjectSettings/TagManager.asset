@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Floor
+  - Furniture
+  - Walls
+  - Player
+  - Customers
+  - Packages
+  - OuterWalls
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 3530659709
+    locked: 0
+  - name: Walls
+    uniqueID: 1366422375
+    locked: 0
+  - name: Doors
+    uniqueID: 221644785
+    locked: 0
+  - name: Furniture
+    uniqueID: 3357552259
+    locked: 0
+  - name: Office Furniture
+    uniqueID: 4018892597
+    locked: 0
+  - name: On Surface
+    uniqueID: 2977143537
+    locked: 0
+  - name: Player
+    uniqueID: 2097218957
+    locked: 0
+  - name: Customers
+    uniqueID: 2457305769
+    locked: 0
+  - name: Packages
+    uniqueID: 2821968979
+    locked: 0
+  - name: Outer Walls
+    uniqueID: 1593281969
+    locked: 0
