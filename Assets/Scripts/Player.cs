@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
   float moveSpeed = 5f;
   Outfit outfit;
 
+  UI myUI;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     outfit = GetComponentInChildren<Outfit>();
     // outfit.SetOutfit(0, 0, 0, 0);
     outfit.SetRandomOutfit();
+    myUI = FindAnyObjectByType<UI>();
   }
 
   // Update is called once per frame
@@ -35,5 +38,26 @@ public class Player : MonoBehaviour
   void OnMove(InputValue value)
   {
     input = value.Get<Vector2>();
+  }
+
+  void OnOpenJournal(InputValue value)
+  {
+    if (value.isPressed)
+      myUI.ToggleJournal();
+  }
+
+  void OnPageForward(InputValue value)
+  {
+    Debug.Log("Journal toggled, current state: " + value.ToString());
+    if (value.isPressed && myUI.IsJournalOpen())
+      myUI.PageForward();
+  }
+
+  void OnPageBackward(InputValue value)
+  {
+    Debug.Log("Journal toggled, current state: " + value.ToString());
+
+    if (value.isPressed && myUI.IsJournalOpen())
+      myUI.PageBackward();
   }
 }

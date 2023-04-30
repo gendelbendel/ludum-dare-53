@@ -111,7 +111,7 @@ public class OutfitCustomization : MonoBehaviour
 
   public Sprite FindSpriteByName(string name)
   {
-    Debug.Log("name lookup: " + name);
+    // Debug.Log("name lookup: " + name);
     return Array.Find(sprites, sprite => sprite.name == name);
   }
 }

@@ -18,6 +18,10 @@ All made by Kenney!
 - https://www.kenney.nl/assets/roguelike-indoors
 - https://www.kenney.nl/assets/roguelike-characters
 
+### Journal Icon
+
+https://opengameart.org/content/496-pixel-art-icons-for-medievalfantasy-rpg
+
 ## Audio
 
 ### TBD
