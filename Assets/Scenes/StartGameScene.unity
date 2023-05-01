@@ -367,7 +367,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 292060115}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 743893501}
+        m_TargetAssemblyTypeName: StartGameUI, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &292060115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,24 +427,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 292060112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 144b82b7c9b0dd349a5e8bdaa06c45c9, type: 3}
+  m_Script: {fileID: 11500000, guid: b03758bbabd6343498324dff1ad7f152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   func:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 743893501}
-        m_TargetAssemblyTypeName: StartGameUI, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &378425438
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +916,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 743893496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918a67f84e877e4449a8cb66ad2ac545, type: 3}
+  m_Script: {fileID: 11500000, guid: 1033ae7f31cc97f499351ec22943c59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &743893502
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: e8fefda7-9ceb-491e-bf68-6b4335691523
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1022515695
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1022515695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddcda9b490b5004eb01aeea4e1d3363, type: 3}
+  m_Script: {fileID: 11500000, guid: aeb9373e4ca7f514d8336f87ddd534d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1065725713

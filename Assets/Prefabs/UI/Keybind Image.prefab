@@ -86,8 +86,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3127169163084105231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cab00d8390977429ebec3dfced3331, type: 3}
+  m_Script: {fileID: 11500000, guid: 33326ac470f3b2d43a15f8d770ede37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamepadImage: {fileID: -1111487970, guid: ecb0a08a7c8a4b748a502a16ce296da2, type: 3}
-  keyboardImage: {fileID: -860800565, guid: ecb0a08a7c8a4b748a502a16ce296da2, type: 3}
+  gamepadImage: {fileID: 0}
+  keyboardImage: {fileID: 0}

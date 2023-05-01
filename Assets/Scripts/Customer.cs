@@ -34,6 +34,7 @@ public class Customer : MonoBehaviour
   public float packageWeight { get; set; }
   public string packageDestination { get; set; }
   public string comment { get; set; }
+  public bool correctChoice { get; set; }
 
   void Awake()
   {

@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
 
     GetComponent<SpriteRenderer>().sprite = null;
 
-    gameSession = FindObjectOfType<GameSession>();
     rigidBody = GetComponent<Rigidbody2D>();
     outfit = GetComponentInChildren<Outfit>();
     myUI = FindObjectOfType<GameUI>();
@@ -38,6 +37,8 @@ public class Player : MonoBehaviour
 
   void Start()
   {
+    gameSession = FindObjectOfType<GameSession>();
+
     outfit.SetOutfit(gameSession.GetPlayerBody(),
       gameSession.GetPlayerPants(),
       gameSession.GetPlayerShirt(),
@@ -49,31 +50,33 @@ public class Player : MonoBehaviour
   void Update()
   {
     Move();
-    // Debug.Log(Vector2.Distance(transform.position, table.transform.position));
-    if (Vector2.Distance(transform.position, table.transform.position) > 1.5f)
+    if (table != null)
     {
-      if (myUI.ItemsOpen)
-        myUI.ToggleItems();
-      if (!myUI.standHereEnabled)
+      if (Vector2.Distance(transform.position, table.transform.position) > 1.5f)
       {
-        myUI.ToggleStandHere();
+        if (myUI.ItemsOpen)
+          myUI.ToggleItems();
+        if (!myUI.standHereEnabled)
+        {
+          myUI.ToggleStandHere();
 
-      }
-      if (myUI.standHereButtonEnabled)
-      {
-        myUI.ToggleStandHereButton();
-      }
-    }
-    else
-    {
-      if (myUI.standHereEnabled)
-      {
-        myUI.ToggleStandHere();
-      }
-      if (!myUI.standHereButtonEnabled && customerManager.currentCustomer)
-      {
-        if (customerManager.currentCustomer.Waiting && customerManager.currentCustomer.Entering)
+        }
+        if (myUI.standHereButtonEnabled)
+        {
           myUI.ToggleStandHereButton();
+        }
+      }
+      else
+      {
+        if (myUI.standHereEnabled)
+        {
+          myUI.ToggleStandHere();
+        }
+        if (!myUI.standHereButtonEnabled && customerManager.currentCustomer)
+        {
+          if (customerManager.currentCustomer.Waiting && customerManager.currentCustomer.Entering)
+            myUI.ToggleStandHereButton();
+        }
       }
     }
   }

@@ -26,15 +26,17 @@ public class GameUI : MonoBehaviour
     standHereButtonAnimator = GameObject.Find("Press Button").GetComponent<Animator>();
 
     goldDisplay = GameObject.Find("Gold Box").GetComponentInChildren<TextMeshProUGUI>();
-    gameSession = FindObjectOfType<GameSession>();
   }
 
   void Start()
   {
+    gameSession = FindObjectOfType<GameSession>();
+
     journalOpen = false;
     ItemsOpen = false;
     standHereEnabled = false;
     standHereButtonEnabled = false;
+    Debug.Log("GOLD START: " + gameSession.Gold);
     UpdateGoldDisplay();
   }
 

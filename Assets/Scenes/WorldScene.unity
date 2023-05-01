@@ -7206,7 +7206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 52156530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5715069a02f20547898b581e523db99, type: 3}
+  m_Script: {fileID: 11500000, guid: 2174ef2244c5e754ba03e3ceae7dcc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   customerPrefab: {fileID: 6775684767106977669, guid: 9738006cf9280c3479ada9b3253e871e, type: 3}
@@ -9564,19 +9564,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 152481770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ab8edca1fbc5849bf6fd35b28a2257, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b8ff87157dbe2945adc0eb4a908712a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  journalAnimator: {fileID: 0}
-  itemsAnimator: {fileID: 0}
-  standHereAnimator: {fileID: 0}
-  standHereButtonAnimator: {fileID: 0}
-  journalOpen: 0
-  goldDisplay: {fileID: 0}
-  gameSession: {fileID: 0}
-  <ItemsOpen>k__BackingField: 0
-  <standHereEnabled>k__BackingField: 0
-  <standHereButtonEnabled>k__BackingField: 0
 --- !u!1 &155069907
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,13 +10719,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 327474788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 144b82b7c9b0dd349a5e8bdaa06c45c9, type: 3}
+  m_Script: {fileID: 11500000, guid: b03758bbabd6343498324dff1ad7f152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   func:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
 --- !u!1 &357692039
 GameObject:
   m_ObjectHideFlags: 0
@@ -13606,7 +13595,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1322101626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a79849d0a0de30488b57002e479e09a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cfb3ae8b4efb38498718b2d42eea9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1322101628
@@ -13724,10 +13713,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1345299961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ac68e6587ea9d458d3c2c90cd128f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bde6802e0e0a394982d8b8994d6468a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonImage: {fileID: 0}
   gamepadImage: {fileID: -1802999744, guid: ecb0a08a7c8a4b748a502a16ce296da2, type: 3}
   keyboardImage: {fileID: -1312809879, guid: ecb0a08a7c8a4b748a502a16ce296da2, type: 3}
 --- !u!212 &1345299965
@@ -17753,17 +17741,41 @@ PrefabInstance:
       value: Journal Button
       objectReference: {fileID: 0}
     - target: {fileID: 3939309615222920889, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
+      propertyPath: func.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939309615222920889, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
+      propertyPath: func.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939309615222920889, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
       propertyPath: func.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 152481775}
     - target: {fileID: 3939309615222920889, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
+      propertyPath: func.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939309615222920889, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
       propertyPath: func.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleJournal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939309615222920889, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
+      propertyPath: func.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939309615222920889, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
+      propertyPath: func.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5998830382444269945, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
       propertyPath: gamepadImage
       value: 
       objectReference: {fileID: -682623937, guid: ecb0a08a7c8a4b748a502a16ce296da2, type: 3}
+    - target: {fileID: 5998830382444269945, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
+      propertyPath: keyboardImage
+      value: 
+      objectReference: {fileID: -860800565, guid: ecb0a08a7c8a4b748a502a16ce296da2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c03b15817d47c434b93d435f7caecf15, type: 3}
 --- !u!1001 &4098227024709785324

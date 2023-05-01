@@ -19,13 +19,18 @@ public class GameSession : MonoBehaviour
 
   void Awake()
   {
+    Debug.Log("Gold: " + Gold);
     // Debug.Log(SceneManager.GetActiveScene().name);
     int numGameSessions = FindObjectsOfType<GameSession>().Length;
     if (gameSession != null)
     {
+      Debug.Log("GOLDDDDDDD: " + gameSession.Gold);
+      Debug.Log("GOLDDDDDDD 2: " + Gold);
+      gameObject.SetActive(false);
       Destroy(gameObject);
       return;
     }
+    Debug.Log("HEYYYY");
 
     gameSession = this;
 
@@ -42,7 +47,7 @@ public class GameSession : MonoBehaviour
     {
       SetPlayerActionMap();
     }
-    DontDestroyOnLoad(gameObject);
+    DontDestroyOnLoad(this.gameObject);
 
   }
 

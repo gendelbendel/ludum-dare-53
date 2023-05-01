@@ -19,7 +19,6 @@ public class NewPlayerUI : MonoBehaviour
 
   void Awake()
   {
-    gameSession = FindObjectOfType<GameSession>();
     player = FindObjectOfType<Player>();
 
     outfitCustomization = FindObjectOfType<OutfitCustomization>();
@@ -32,6 +31,8 @@ public class NewPlayerUI : MonoBehaviour
 
   void Start()
   {
+    gameSession = FindObjectOfType<GameSession>();
+
     animator = GetComponent<Animator>();
     startingGame = false;
 
