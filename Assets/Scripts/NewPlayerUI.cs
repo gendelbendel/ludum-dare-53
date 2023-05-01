@@ -20,22 +20,26 @@ public class NewPlayerUI : MonoBehaviour
   void Awake()
   {
     gameSession = FindObjectOfType<GameSession>();
-    gameSession.SetPlayerOutfit(2, 7, 10, 0);
-    gameSession.SetPlayerName("");
     player = FindObjectOfType<Player>();
+
     outfitCustomization = FindObjectOfType<OutfitCustomization>();
 
     bodyCounter = GetCounterText("Body").GetComponent<TextMeshProUGUI>();
     pantsCounter = GetCounterText("Pants").GetComponent<TextMeshProUGUI>();
     shirtCounter = GetCounterText("Shirt").GetComponent<TextMeshProUGUI>();
     hairCounter = GetCounterText("Hair").GetComponent<TextMeshProUGUI>();
-    UpdateCounters();
   }
 
   void Start()
   {
     animator = GetComponent<Animator>();
     startingGame = false;
+
+    gameSession.SetPlayerName("");
+    gameSession.SetPlayerOutfit(2, 7, 10, 0);
+
+    player.outfit.SetOutfit(2, 7, 10, 0);
+    UpdateCounters();
   }
 
   // Update is called once per frame
@@ -54,8 +58,6 @@ public class NewPlayerUI : MonoBehaviour
 
   public void StartGame()
   {
-    Debug.Log("Journal toggled, current state: " + startingGame);
-
     animator.SetTrigger("game_start");
   }
 

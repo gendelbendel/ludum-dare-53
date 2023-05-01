@@ -22,7 +22,7 @@ public class StartGameUI : MonoBehaviour
 
   public void ToggleJournal()
   {
-    Debug.Log("Journal toggled, current state: " + startingGame);
+    // Debug.Log("Journal toggled, current state: " + startingGame);
     if (startingGame)
       animator.SetTrigger("journal_close");
     else
@@ -37,7 +37,7 @@ public class StartGameUI : MonoBehaviour
 
   public void StartGame()
   {
-    Debug.Log("Journal toggled, current state: " + startingGame);
+    // Debug.Log("Journal toggled, current state: " + startingGame);
     animator.SetTrigger("game_start");
   }
 

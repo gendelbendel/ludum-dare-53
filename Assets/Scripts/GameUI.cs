@@ -22,7 +22,7 @@ public class GameUI : MonoBehaviour
 
   public void ToggleJournal()
   {
-    Debug.Log("Journal toggled, current state: " + journalOpen);
+    // Debug.Log("Journal toggled, current state: " + journalOpen);
     if (journalOpen)
       animator.SetTrigger("journal_close");
     else

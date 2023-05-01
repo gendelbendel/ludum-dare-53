@@ -16,7 +16,7 @@ public class GameSession : MonoBehaviour
 
   void Awake()
   {
-    Debug.Log(SceneManager.GetActiveScene().name);
+    // Debug.Log(SceneManager.GetActiveScene().name);
     int numGameSessions = FindObjectsOfType<GameSession>().Length;
     if (gameSession != null)
     {
@@ -26,7 +26,7 @@ public class GameSession : MonoBehaviour
 
     gameSession = this;
 
-    Debug.Log("GameSession Awake _bodyIndex: " + _bodyIndex);
+    // Debug.Log("GameSession Awake _bodyIndex: " + _bodyIndex);
     _playerInput = FindObjectOfType<Player>().GetComponent<PlayerInput>();
     if (SceneManager.GetActiveScene().name == "NewPlayerScene")
     {
@@ -90,27 +90,27 @@ public class GameSession : MonoBehaviour
 
   public int GetPlayerBody()
   {
-    Debug.Log("Player body: " + GameSession.gameSession._bodyIndex);
+    // Debug.Log("Player body: " + GameSession.gameSession._bodyIndex);
     return GameSession.gameSession._bodyIndex;
   }
 
   public int GetPlayerPants()
   {
-    Debug.Log("Player pants: " + GameSession.gameSession._pantsIndex);
+    // Debug.Log("Player pants: " + GameSession.gameSession._pantsIndex);
 
     return GameSession.gameSession._pantsIndex;
   }
 
   public int GetPlayerShirt()
   {
-    Debug.Log("Player shirt: " + GameSession.gameSession._shirtIndex);
+    // Debug.Log("Player shirt: " + GameSession.gameSession._shirtIndex);
 
     return GameSession.gameSession._shirtIndex;
   }
 
   public int GetPlayerHair()
   {
-    Debug.Log("Player hair: " + GameSession.gameSession._hairIndex);
+    // Debug.Log("Player hair: " + GameSession.gameSession._hairIndex);
 
     return GameSession.gameSession._hairIndex;
   }

@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    Debug.Log("Player start!");
+    // Debug.Log("Player start!");
     GetComponent<SpriteRenderer>().sprite = null;
 
     gameSession = FindObjectOfType<GameSession>();
@@ -55,15 +55,14 @@ public class Player : MonoBehaviour
 
   void OnPageForward(InputValue value)
   {
-    Debug.Log("Journal toggled, current state: " + value.ToString());
+    // Debug.Log("Journal toggled, current state: " + value.ToString());
     if (value.isPressed && myUI.IsJournalOpen())
       myUI.PageForward();
   }
 
   void OnPageBackward(InputValue value)
   {
-    Debug.Log("Journal toggled, current state: " + value.ToString());
-
+    // Debug.Log("Journal toggled, current state: " + value.ToString());
     if (value.isPressed && myUI.IsJournalOpen())
       myUI.PageBackward();
   }

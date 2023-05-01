@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Customer
   - Wall
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -46,9 +47,18 @@ TagManager:
   - name: Floor
     uniqueID: 3530659709
     locked: 0
+  - name: On Floor
+    uniqueID: 1949667943
+    locked: 0
   - name: World Object
     uniqueID: 3355166645
     locked: 0
   - name: Upper Walls
     uniqueID: 2292042899
+    locked: 0
+  - name: On Walls
+    uniqueID: 1392603165
+    locked: 0
+  - name: ObjectNameLabel
+    uniqueID: 1081597495
     locked: 0

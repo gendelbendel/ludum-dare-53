@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewPlayerScene.unity
     guid: a571e02aa7e5c6d48b58462368338d0d
+  - enabled: 0
+    path: Assets/Scenes/DebugWorldScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/WorldScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: f3e936b32ea75c24a9a3675a2fd11fb4
   m_configObjects: {}
