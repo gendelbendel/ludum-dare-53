@@ -15,8 +15,8 @@ public class Customer : MonoBehaviour
 
   Outfit outfit;
 
-  bool entering;
-  bool waiting;
+  public bool Entering { get; set; }
+  public bool Waiting { get; set; }
   int pointIndex;
 
   CustomerManager customerManager;
@@ -30,17 +30,21 @@ public class Customer : MonoBehaviour
     outfit = GetComponentInChildren<Outfit>();
     customerManager = FindObjectOfType<CustomerManager>();
     myRigidBody = GetComponent<Rigidbody2D>();
+    Entering = true;
+    Waiting = true;
+    pointIndex = 0;
+    Debug.Log("Awake: " + transform.position.x + ", " + transform.position.y);
   }
 
   void Start()
   {
-    entering = true;
-    waiting = false;
-    pointIndex = 0;
+    Debug.Log("Customer start!");
 
     outfit.SetRandomOutfit();
 
     currentPoints = customerManager.GetEnterPathVectors();
+    Debug.Log("Start: " + transform.position.x + ", " + transform.position.y);
+
   }
 
   void FixedUpdate()
@@ -66,27 +70,35 @@ public class Customer : MonoBehaviour
 
   void Wait()
   {
-    if (waiting)
+    if (Waiting && !Entering)
     {
       waitTimer -= Time.deltaTime;
-      if (waitTimer < 0 && entering)
-      {
-        waiting = false;
-        entering = false;
-        pointIndex = 0;
-        waitTimer = maxWaitTime;
-        currentPoints = customerManager.GetExitPathVectors();
-      }
-      else if (waitTimer < 0 && !entering)
+      if (waitTimer < 0)
       {
         Destroy(gameObject);
       }
     }
   }
 
+  public void BeginWalkingInside()
+  {
+
+    Waiting = false;
+  }
+
+  public void FinishQuest()
+  {
+    Waiting = false;
+    Entering = false;
+    pointIndex = 0;
+    waitTimer = maxWaitTime;
+    currentPoints = customerManager.GetExitPathVectors();
+    customerManager.currentCustomer = null;
+  }
+
   void WalkTowardsPoint()
   {
-    if (pointIndex <= currentPoints.Length - 1)
+    if (!Waiting && pointIndex <= currentPoints.Length - 1)
     {
       Vector2 newPos = Vector2.MoveTowards(transform.position, currentPoints[pointIndex], moveSpeed * Time.deltaTime);
       myRigidBody.MovePosition(newPos);
@@ -96,7 +108,7 @@ public class Customer : MonoBehaviour
       }
       if (pointIndex == currentPoints.Length)
       {
-        waiting = true;
+        Waiting = true;
       }
     }
   }
