@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Customer
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -45,30 +46,9 @@ TagManager:
   - name: Floor
     uniqueID: 3530659709
     locked: 0
-  - name: Walls
-    uniqueID: 1366422375
+  - name: World Object
+    uniqueID: 3355166645
     locked: 0
-  - name: Doors
-    uniqueID: 221644785
-    locked: 0
-  - name: Player
-    uniqueID: 2097218957
-    locked: 0
-  - name: Furniture
-    uniqueID: 3357552259
-    locked: 0
-  - name: Customers
-    uniqueID: 2457305769
-    locked: 0
-  - name: Office Furniture
-    uniqueID: 4018892597
-    locked: 0
-  - name: On Surface
-    uniqueID: 2977143537
-    locked: 0
-  - name: Packages
-    uniqueID: 2821968979
-    locked: 0
-  - name: Outer Walls
-    uniqueID: 1593281969
+  - name: Upper Walls
+    uniqueID: 2292042899
     locked: 0
