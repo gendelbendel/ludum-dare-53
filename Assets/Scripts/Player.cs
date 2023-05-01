@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
   float moveSpeed = 5f;
   Outfit outfit;
 
-  UI myUI;
+  GameUI myUI;
 
   // Start is called before the first frame update
   void Start()
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     outfit = GetComponentInChildren<Outfit>();
     // outfit.SetOutfit(0, 0, 0, 0);
     outfit.SetRandomOutfit();
-    myUI = FindAnyObjectByType<UI>();
+    myUI = FindAnyObjectByType<GameUI>();
   }
 
   // Update is called once per frame

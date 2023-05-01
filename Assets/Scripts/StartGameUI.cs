@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class UI : MonoBehaviour
+public class StartGameUI : MonoBehaviour
 {
   Animator animator;
-  bool journalOpen;
+  bool startingGame;
   // Start is called before the first frame update
   void Start()
   {
     animator = GetComponent<Animator>();
-    journalOpen = false;
+    startingGame = false;
   }
 
   // Update is called once per frame
@@ -22,26 +22,24 @@ public class UI : MonoBehaviour
 
   public void ToggleJournal()
   {
-    Debug.Log("Journal toggled, current state: " + journalOpen);
-    if (journalOpen)
+    Debug.Log("Journal toggled, current state: " + startingGame);
+    if (startingGame)
       animator.SetTrigger("journal_close");
     else
       animator.SetTrigger("journal_open");
-    journalOpen = !journalOpen;
+    startingGame = !startingGame;
   }
 
-  public bool IsJournalOpen()
+  public bool IsGameStarting()
   {
-    return journalOpen;
+    return startingGame;
   }
 
-  public void PageForward()
+  public void StartGame()
   {
-    animator.SetTrigger("page_forward");
+    Debug.Log("Journal toggled, current state: " + startingGame);
+
+    animator.SetTrigger("game_start");
   }
 
-  public void PageBackward()
-  {
-    animator.SetTrigger("page_backward");
-  }
 }
