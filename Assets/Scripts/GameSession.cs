@@ -11,6 +11,9 @@ public class GameSession : MonoBehaviour
   int _shirtIndex;
   int _hairIndex;
   string playerName;
+  public int Gold { get; set; }
+  public int difficulty { get; set; }
+
   PlayerInput _playerInput;
   public static GameSession gameSession;
 
@@ -25,6 +28,9 @@ public class GameSession : MonoBehaviour
     }
 
     gameSession = this;
+
+    Gold = 10;
+    difficulty = 1;
 
     // Debug.Log("GameSession Awake _bodyIndex: " + _bodyIndex);
     _playerInput = FindObjectOfType<Player>().GetComponent<PlayerInput>();
