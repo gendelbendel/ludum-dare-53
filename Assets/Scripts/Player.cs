@@ -8,19 +8,26 @@ public class Player : MonoBehaviour
   Vector2 input;
   Rigidbody2D rigidBody;
   float moveSpeed = 5f;
-  Outfit outfit;
-
+  public Outfit outfit;
+  GameSession gameSession;
   GameUI myUI;
 
   // Start is called before the first frame update
   void Start()
   {
+    Debug.Log("Player start!");
     GetComponent<SpriteRenderer>().sprite = null;
+
+    gameSession = FindObjectOfType<GameSession>();
     rigidBody = GetComponent<Rigidbody2D>();
     outfit = GetComponentInChildren<Outfit>();
     // outfit.SetOutfit(0, 0, 0, 0);
-    outfit.SetRandomOutfit();
-    myUI = FindAnyObjectByType<GameUI>();
+    // outfit.SetRandomOutfit();
+    outfit.SetOutfit(gameSession.GetPlayerBody(),
+      gameSession.GetPlayerPants(),
+      gameSession.GetPlayerShirt(),
+      gameSession.GetPlayerHair());
+    myUI = FindObjectOfType<GameUI>();
   }
 
   // Update is called once per frame

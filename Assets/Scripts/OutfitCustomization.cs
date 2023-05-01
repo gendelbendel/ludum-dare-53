@@ -61,28 +61,72 @@ public class OutfitCustomization : MonoBehaviour
     return hairChoices.Length;
   }
 
-  public Sprite GetRandomBodySprite()
+  public int GetNextBodyIndex(int index)
   {
-    var random = new System.Random();
-    return GetBodySprite(random.Next(GetMaxBodyCount()));
+    if (index + 1 >= GetMaxBodyCount()) return 0;
+    return index + 1;
   }
 
-  public Sprite GetRandomPantsSprite()
+  public int GetNextPantsIndex(int index)
   {
-    var random = new System.Random();
-    return GetPantsSprite(random.Next(GetMaxPantsCount()));
+    if (index + 1 >= GetMaxPantsCount()) return 0;
+    return index + 1;
   }
 
-  public Sprite GetRandomShirtSprite()
+  public int GetNextShirtIndex(int index)
   {
-    var random = new System.Random();
-    return GetShirtSprite(random.Next(GetMaxShirtCount()));
+    if (index + 1 >= GetMaxShirtCount()) return 0;
+    return index + 1;
   }
 
-  public Sprite GetRandomHairSprite()
+  public int GetNextHairIndex(int index)
   {
-    var random = new System.Random();
-    return GetHairSprite(random.Next(GetMaxHairCount()));
+    if (index + 1 >= GetMaxHairCount()) return 0;
+    return index + 1;
+  }
+
+  public int GetPreviousBodyIndex(int index)
+  {
+    if (index - 1 <= 0) return GetMaxBodyCount() - 1;
+    return index - 1;
+  }
+
+  public int GetPreviousPantsIndex(int index)
+  {
+    if (index - 1 <= 0) return GetMaxPantsCount() - 1;
+    return index - 1;
+  }
+
+  public int GetPreviousShirtIndex(int index)
+  {
+    if (index - 1 <= 0) return GetMaxShirtCount() - 1;
+    return index - 1;
+  }
+
+  public int GetPreviousHairIndex(int index)
+  {
+    if (index - 1 <= 0) return GetMaxHairCount() - 1;
+    return index - 1;
+  }
+
+  public int GetRandomBodyIndex()
+  {
+    return new System.Random().Next(GetMaxBodyCount());
+  }
+
+  public int GetRandomPantsIndex()
+  {
+    return new System.Random().Next(GetMaxPantsCount());
+  }
+
+  public int GetRandomShirtIndex()
+  {
+    return new System.Random().Next(GetMaxShirtCount());
+  }
+
+  public int GetRandomHairIndex()
+  {
+    return new System.Random().Next(GetMaxHairCount());
   }
 
   public Sprite GetBodySprite(int index)

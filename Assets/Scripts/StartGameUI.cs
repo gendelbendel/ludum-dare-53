@@ -38,7 +38,6 @@ public class StartGameUI : MonoBehaviour
   public void StartGame()
   {
     Debug.Log("Journal toggled, current state: " + startingGame);
-
     animator.SetTrigger("game_start");
   }
 
