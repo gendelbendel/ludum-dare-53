@@ -17,6 +17,7 @@ public class CustomerManager : MonoBehaviour
   public DifficultyManager diffManager;
 
   int currentCustomerCount;
+  int maxCustomers = 10;
 
   void Awake()
   {
@@ -24,12 +25,12 @@ public class CustomerManager : MonoBehaviour
     startingPosition = new Vector2(3, -11);
     enterPath = GameObject.Find("Paths/Enter");
     exitPath = GameObject.Find("Paths/Exit");
-    currentCustomer = CreateCustomer();
     diffManager = FindObjectOfType<DifficultyManager>();
   }
 
   void Start()
   {
+    currentCustomer = CreateCustomer();
     currentCustomer.BeginWalkingInside();
     FindObjectOfType<GameUI>().UpdateItemsDisplay(currentCustomer);
   }
@@ -41,7 +42,7 @@ public class CustomerManager : MonoBehaviour
     go.name = "Customer " + currentCustomerCount;
     currentCustomerCount++;
     Customer customer = go.GetComponent<Customer>();
-
+    diffManager.RandomizeQuest(customer);
     return customer;
   }
 
@@ -53,7 +54,11 @@ public class CustomerManager : MonoBehaviour
       FindObjectOfType<GameUI>().UpdateItemsDisplay(currentCustomer);
       nextCustomer = null;
     }
-    if (currentCustomer && !nextCustomer && currentCustomer.Entering && currentCustomer.Waiting)
+    if (currentCustomer &&
+      !nextCustomer &&
+      currentCustomer.Entering &&
+      currentCustomer.Waiting &&
+      currentCustomerCount <= maxCustomers)
     {
       nextCustomer = CreateCustomer();
     }

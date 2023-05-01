@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
   {
     if (Vector2.Distance(transform.position, table.transform.position) < 1.5f)
     {
-      if (value.isPressed)
+      if (value.isPressed && customerManager.currentCustomer.Waiting && customerManager.currentCustomer.Entering)
         myUI.ToggleItems();
     }
   }
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
   {
     if (value.isPressed && myUI.ItemsOpen)
     {
-      EvaluateChoice(true);
+      EvaluateChoice(Customer.ChoiceValue.Accept);
       myUI.ToggleItems();
       myUI.ToggleStandHereButton();
     }
@@ -121,20 +121,34 @@ public class Player : MonoBehaviour
   {
     if (value.isPressed && myUI.ItemsOpen)
     {
-      EvaluateChoice(false);
+      EvaluateChoice(Customer.ChoiceValue.Deny);
       myUI.ToggleItems();
       myUI.ToggleStandHereButton();
     }
   }
 
-  void EvaluateChoice(bool choice)
+  void EvaluateChoice(Customer.ChoiceValue choice)
   {
     Customer currentCustomer = customerManager.currentCustomer;
     if (currentCustomer.Waiting && currentCustomer.Entering)
     {
       currentCustomer.FinishQuest();
       customerManager.nextCustomer.BeginWalkingInside();
-      myUI.AddGold(5);
+      AddGold(currentCustomer, choice);
+    }
+  }
+
+  void AddGold(Customer customer, Customer.ChoiceValue choice)
+  {
+    if (choice == customer.correctChoice)
+    {
+      myUI.AddGold(customer.goldValue);
+      myUI.PlayGoldSound();
+    }
+    else
+    {
+      myUI.AddGold(-customer.goldValue);
+      myUI.PlayEvilSound();
     }
   }
 

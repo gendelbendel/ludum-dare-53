@@ -29,12 +29,18 @@ public class Customer : MonoBehaviour
     Letter, Package, OddObject
   }
 
+  public enum ChoiceValue
+  {
+    Deny, Accept
+  }
+
   public PackageType packageType { get; set; }
   public int packageQuantity { get; set; }
   public float packageWeight { get; set; }
   public string packageDestination { get; set; }
   public string comment { get; set; }
-  public bool correctChoice { get; set; }
+  public ChoiceValue correctChoice { get; set; }
+  public int goldValue { get; set; }
 
   void Awake()
   {
@@ -50,6 +56,8 @@ public class Customer : MonoBehaviour
     packageWeight = 0;
     packageDestination = "Nowhere";
     comment = "I'm still waking up";
+    correctChoice = ChoiceValue.Deny;
+    goldValue = 5;
     Debug.Log("Awake: " + transform.position.x + ", " + transform.position.y);
   }
 

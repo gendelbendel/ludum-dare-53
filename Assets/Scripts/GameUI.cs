@@ -18,13 +18,17 @@ public class GameUI : MonoBehaviour
   public bool standHereEnabled { get; set; }
   public bool standHereButtonEnabled { get; set; }
 
+  [SerializeField] AudioClip gold;
+  [SerializeField] AudioClip evil;
+  AudioSource audioSource;
+
   void Awake()
   {
     journalAnimator = GameObject.Find("Full Journal").GetComponent<Animator>();
     itemsAnimator = GameObject.Find("Customer Delivery").GetComponent<Animator>();
     standHereAnimator = GameObject.Find("Arrow indicator").GetComponent<Animator>();
     standHereButtonAnimator = GameObject.Find("Press Button").GetComponent<Animator>();
-
+    audioSource = GetComponent<AudioSource>();
     goldDisplay = GameObject.Find("Gold Box").GetComponentInChildren<TextMeshProUGUI>();
   }
 
@@ -51,6 +55,18 @@ public class GameUI : MonoBehaviour
     UpdateGoldDisplay();
   }
 
+  public void PlayGoldSound()
+  {
+    audioSource.clip = gold;
+    audioSource.Play();
+  }
+
+  public void PlayEvilSound()
+  {
+    audioSource.clip = evil;
+    audioSource.Play();
+  }
+
   void UpdateGoldDisplay()
   {
     goldDisplay.text = gameSession.Gold.ToString();
@@ -58,7 +74,11 @@ public class GameUI : MonoBehaviour
 
   public void UpdateItemsDisplay(Customer customer)
   {
-    GameObject.Find("Customer Name Text").GetComponent<TextMeshProUGUI>().text = customer.gameObject.name;
+    GameObject.Find("Customer Name Text").GetComponent<TextMeshProUGUI>().text = "Name: " + customer.gameObject.name;
+    GameObject.Find("Quantity Text").GetComponent<TextMeshProUGUI>().text = "Quantity: " + customer.packageQuantity.ToString();
+    GameObject.Find("Weight Text").GetComponent<TextMeshProUGUI>().text = "Weight: " + customer.packageWeight.ToString() + "g";
+    GameObject.Find("Destination Text").GetComponent<TextMeshProUGUI>().text = "Destination: " + customer.packageDestination;
+    GameObject.Find("Customer Comment").GetComponent<TextMeshProUGUI>().text = "\"" + customer.comment + "\"";
   }
 
   public void ToggleJournal()

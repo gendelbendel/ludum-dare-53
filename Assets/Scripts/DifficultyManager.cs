@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DifficultyManager : MonoBehaviour
 {
@@ -49,13 +50,12 @@ public class DifficultyManager : MonoBehaviour
 
   private void Awake()
   {
-
+    gameSession = FindObjectOfType<GameSession>();
   }
 
   // Start is called before the first frame update
   void Start()
   {
-    gameSession = FindObjectOfType<GameSession>();
   }
 
   // Update is called once per frame
@@ -65,16 +65,20 @@ public class DifficultyManager : MonoBehaviour
   }
 
   // I hate this
-  void RandomizeQuest(Customer customer)
+  public void RandomizeQuest(Customer customer)
   {
     System.Random random = new System.Random();
     if (gameSession.difficulty == 1)
     {
       customer.packageType = Customer.PackageType.Letter;
-      customer.packageQuantity = random.Next(2);
-      customer.packageWeight = RandomFloat(random, 5.5f, 20f);
+      int qty = random.Next(4);
+      customer.packageQuantity = qty == 0 ? qty + 1 : qty;
+      customer.packageWeight = (float)Decimal.Round(Convert.ToDecimal(RandomFloat(random, 5.5f, 20f)), 2);
       customer.packageDestination = GenerateName(random, 8) + " City";
       customer.comment = commentsLevel1[random.Next(commentsLevel1.Length - 1)];
+      customer.correctChoice = customer.packageQuantity <= 1 ?
+        Customer.ChoiceValue.Accept :
+        Customer.ChoiceValue.Deny;
     }
     else if (gameSession.difficulty == 2)
     {
