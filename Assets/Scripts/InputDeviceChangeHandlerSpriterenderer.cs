@@ -47,7 +47,7 @@ public class InputDeviceChangeHandlerSpriterenderer : MonoBehaviour
     }
     else
     {
-      Debug.Log(buttonImage.color.a);
+      // Debug.Log(buttonImage.color.a);
       buttonImage.sprite = keyboardImage;
     }
   }

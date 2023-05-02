@@ -21,9 +21,11 @@ public class Player : MonoBehaviour
   float zoomChange = 1f;
   float startZoom = 5f;
 
+  int purchasesMade { get; set; }
+
   void Awake()
   {
-    Debug.Log("Player awake!");
+    // Debug.Log("Player awake!");
 
     GetComponent<SpriteRenderer>().sprite = null;
 
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
 
   void Start()
   {
+    purchasesMade = 0;
     gameSession = FindObjectOfType<GameSession>();
 
     outfit.SetOutfit(gameSession.GetPlayerBody(),
@@ -78,7 +81,13 @@ public class Player : MonoBehaviour
             myUI.ToggleStandHereButton();
         }
       }
+      // Debug.Log("MAX CUSTOMERS: " + customerManager.maxCustomers);
+      if (purchasesMade >= customerManager.maxCustomers)
+      {
+        myUI.ProgressScreen();
+      }
     }
+
   }
 
   void Move()
@@ -129,11 +138,14 @@ public class Player : MonoBehaviour
 
   void EvaluateChoice(Customer.ChoiceValue choice)
   {
+    purchasesMade++;
     Customer currentCustomer = customerManager.currentCustomer;
     if (currentCustomer.Waiting && currentCustomer.Entering)
     {
+
       currentCustomer.FinishQuest();
-      customerManager.nextCustomer.BeginWalkingInside();
+      if (customerManager.nextCustomer != null)
+        customerManager.nextCustomer.BeginWalkingInside();
       AddGold(currentCustomer, choice);
     }
   }

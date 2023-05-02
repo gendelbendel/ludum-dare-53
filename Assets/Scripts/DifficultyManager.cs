@@ -82,11 +82,38 @@ public class DifficultyManager : MonoBehaviour
     }
     else if (gameSession.difficulty == 2)
     {
+      customer.packageType = Customer.PackageType.Letter;
+      int qty = random.Next(4);
+      customer.packageQuantity = qty == 0 ? qty + 1 : qty;
+      customer.packageWeight = (float)Decimal.Round(Convert.ToDecimal(RandomFloat(random, 5.5f, 20f)), 2);
+      customer.packageDestination = GenerateName(random, 8) + " City";
+      customer.comment = commentsLevel1[random.Next(commentsLevel1.Length - 1)];
+      if (customer.packageQuantity <= 1 && customer.packageWeight < 15.0f)
+      {
+        customer.correctChoice = Customer.ChoiceValue.Accept;
+      }
+      else
+      {
+        customer.correctChoice = Customer.ChoiceValue.Deny;
 
+      }
     }
     else if (gameSession.difficulty == 3)
     {
-
+      customer.packageType = Customer.PackageType.Letter;
+      int qty = random.Next(4);
+      customer.packageQuantity = qty == 0 ? qty + 1 : qty;
+      customer.packageWeight = (float)Decimal.Round(Convert.ToDecimal(RandomFloat(random, 5.5f, 20f)), 2);
+      customer.packageDestination = GenerateName(random, 8) + " City";
+      customer.comment = commentsLevel1[random.Next(commentsLevel1.Length - 1)];
+      if (customer.packageQuantity <= 1 && customer.packageWeight < 15.0f && customer.packageDestination != "New York")
+      {
+        customer.correctChoice = Customer.ChoiceValue.Accept;
+      }
+      else
+      {
+        customer.correctChoice = Customer.ChoiceValue.Deny;
+      }
     }
   }
 

@@ -11,7 +11,7 @@ public class Customer : MonoBehaviour
   float maxWaitTime = 2f;
   float waitTimer = 2f;
 
-  float moveSpeed = 3.6f;
+  float moveSpeed = 6.6f;
 
   Outfit outfit;
 
@@ -58,17 +58,14 @@ public class Customer : MonoBehaviour
     comment = "I'm still waking up";
     correctChoice = ChoiceValue.Deny;
     goldValue = 5;
-    Debug.Log("Awake: " + transform.position.x + ", " + transform.position.y);
   }
 
   void Start()
   {
-    Debug.Log("Customer start!");
 
     outfit.SetRandomOutfit();
 
     currentPoints = customerManager.GetEnterPathVectors();
-    Debug.Log("Start: " + transform.position.x + ", " + transform.position.y);
 
   }
 
@@ -79,7 +76,6 @@ public class Customer : MonoBehaviour
 
   void Update()
   {
-    UpdateTimer();
     Wait();
   }
 

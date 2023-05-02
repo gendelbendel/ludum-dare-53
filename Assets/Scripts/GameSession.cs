@@ -13,32 +13,30 @@ public class GameSession : MonoBehaviour
   string playerName;
   public int Gold { get; set; }
   public int difficulty { get; set; }
+  public int day { get; set; }
 
   PlayerInput _playerInput;
   public static GameSession gameSession;
 
   void Awake()
   {
-    Debug.Log("Gold: " + Gold);
     // Debug.Log(SceneManager.GetActiveScene().name);
     int numGameSessions = FindObjectsOfType<GameSession>().Length;
     if (gameSession != null)
     {
-      Debug.Log("GOLDDDDDDD: " + gameSession.Gold);
-      Debug.Log("GOLDDDDDDD 2: " + Gold);
+
       gameObject.SetActive(false);
       Destroy(gameObject);
       return;
     }
-    Debug.Log("HEYYYY");
 
     gameSession = this;
 
     Gold = 10;
     difficulty = 1;
+    day = 1;
 
-    // Debug.Log("GameSession Awake _bodyIndex: " + _bodyIndex);
-    _playerInput = FindObjectOfType<Player>().GetComponent<PlayerInput>();
+    _playerInput = FindObjectOfType<PlayerInput>();
     if (SceneManager.GetActiveScene().name == "NewPlayerScene")
     {
       SetUIActionMap();

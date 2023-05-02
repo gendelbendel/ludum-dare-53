@@ -506,7 +506,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "Gamepad",
                     "action": "Accept",
                     "isComposite": false,
                     "isPartOfComposite": false

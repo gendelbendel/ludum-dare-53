@@ -16,8 +16,8 @@ public class CustomerManager : MonoBehaviour
   public Customer nextCustomer;
   public DifficultyManager diffManager;
 
-  int currentCustomerCount;
-  int maxCustomers = 10;
+  public int currentCustomerCount { get; set; }
+  public int maxCustomers = 10;
 
   void Awake()
   {
@@ -48,7 +48,7 @@ public class CustomerManager : MonoBehaviour
 
   void Update()
   {
-    if (!currentCustomer && nextCustomer)
+    if (currentCustomer == null && nextCustomer != null)
     {
       currentCustomer = nextCustomer;
       FindObjectOfType<GameUI>().UpdateItemsDisplay(currentCustomer);
@@ -62,6 +62,7 @@ public class CustomerManager : MonoBehaviour
     {
       nextCustomer = CreateCustomer();
     }
+
   }
 
   public Vector3[] GetEnterPathVectors()

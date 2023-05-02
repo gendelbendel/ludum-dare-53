@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
   Animator journalAnimator;
   Animator itemsAnimator;
   Animator standHereAnimator;
   Animator standHereButtonAnimator;
+  Animator faderAnimator;
 
   bool journalOpen;
   TextMeshProUGUI goldDisplay;
@@ -28,6 +30,8 @@ public class GameUI : MonoBehaviour
     itemsAnimator = GameObject.Find("Customer Delivery").GetComponent<Animator>();
     standHereAnimator = GameObject.Find("Arrow indicator").GetComponent<Animator>();
     standHereButtonAnimator = GameObject.Find("Press Button").GetComponent<Animator>();
+    faderAnimator = GameObject.Find("Fader Panel").GetComponent<Animator>();
+
     audioSource = GetComponent<AudioSource>();
     goldDisplay = GameObject.Find("Gold Box").GetComponentInChildren<TextMeshProUGUI>();
   }
@@ -42,6 +46,8 @@ public class GameUI : MonoBehaviour
     standHereButtonEnabled = false;
     Debug.Log("GOLD START: " + gameSession.Gold);
     UpdateGoldDisplay();
+    UpdateDayDisplay();
+    UpdateJournalEntries();
   }
 
   void Update()
@@ -72,6 +78,30 @@ public class GameUI : MonoBehaviour
     goldDisplay.text = gameSession.Gold.ToString();
   }
 
+  void UpdateDayDisplay()
+  {
+    GameObject.Find("Day Text").GetComponentInChildren<TextMeshProUGUI>().text = "Day: " + gameSession.day.ToString();
+  }
+
+  void UpdateJournalEntries()
+  {
+    if (gameSession.difficulty >= 1)
+    {
+      GameObject.Find("One Letter Per Rule Text").GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 255);
+      GameObject.Find("olpimage").GetComponentInChildren<Image>().color = new Color(255, 255, 255, 255);
+    }
+    if (gameSession.difficulty >= 2)
+    {
+      GameObject.Find("Letter Weight Rule Text").GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 255);
+      GameObject.Find("lwimage").GetComponentInChildren<Image>().color = new Color(255, 255, 255, 255);
+    }
+    if (gameSession.difficulty >= 3)
+    {
+      GameObject.Find("No New York Rule").GetComponentInChildren<TextMeshProUGUI>().color = new Color(0, 0, 0, 255);
+      GameObject.Find("nyimage").GetComponentInChildren<Image>().color = new Color(255, 255, 255, 255);
+    }
+  }
+
   public void UpdateItemsDisplay(Customer customer)
   {
     GameObject.Find("Customer Name Text").GetComponent<TextMeshProUGUI>().text = "Name: " + customer.gameObject.name;
@@ -93,7 +123,7 @@ public class GameUI : MonoBehaviour
 
   public void ToggleStandHere()
   {
-    Debug.Log("standHereEnabled, current state: " + standHereEnabled);
+    // Debug.Log("standHereEnabled, current state: " + standHereEnabled);
     if (standHereEnabled)
       standHereAnimator.SetTrigger("stand_here_off");
     else
@@ -103,7 +133,7 @@ public class GameUI : MonoBehaviour
 
   public void ToggleStandHereButton()
   {
-    Debug.Log("standHereButtonEnabled, current state: " + standHereButtonEnabled);
+    // Debug.Log("standHereButtonEnabled, current state: " + standHereButtonEnabled);
 
     if (standHereButtonEnabled)
       standHereButtonAnimator.SetTrigger("table_button_off");
@@ -125,6 +155,12 @@ public class GameUI : MonoBehaviour
   public bool IsJournalOpen()
   {
     return journalOpen;
+  }
+
+  public void ProgressScreen()
+  {
+    // Debug.Log("COME ONNNNNNNNNNNNN");
+    faderAnimator.SetTrigger("game_progress_start");
   }
 
   public void PageForward()
